@@ -29,16 +29,3 @@ public class Main {
 		}
 	}
 }
-
-
-
-
-
-
-//String provjera = japi.metoda(unos1, unos2).toString();
-/*
-		if(japi.metoda(unos1, unos2).toString().contains(("Response"))){
-			System.out.println("Pronađena je greška prilikom parsiranja, molimo provjerite unos valuta");
-		}
-		else{
-		*/

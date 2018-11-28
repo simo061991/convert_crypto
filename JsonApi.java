@@ -23,28 +23,28 @@ import org.json.simple.parser.*;
  public class JsonApi {
 	
 	String output = "";
-    StringBuffer odgovor = new StringBuffer();
+   	StringBuffer odgovor = new StringBuffer();
    	
-    	public  StringBuffer metoda (String valutaIz,String valutaU) throws IOException{
+    	public  StringBuffer metodaDohvata (String valutaIz,String valutaU) throws IOException{
     		URL url = null ;
     		url = new URL("https://min-api.cryptocompare.com/data/price?fsym="+valutaIz+"&tsyms="+valutaU);
-            HttpURLConnection connect = (HttpURLConnection) url.openConnection();
-            if (connect.getResponseCode() != 200) {
-                throw new RuntimeException("Pogreöka : HTTP status-kod : "
+            	HttpURLConnection connect = (HttpURLConnection) url.openConnection();
+            	if (connect.getResponseCode() != 200) {
+                	throw new RuntimeException("Pogre≈°ka : HTTP status-kod : "
                         + connect.getResponseCode());
-            }
-            BufferedReader br = new BufferedReader(new InputStreamReader(
-            (connect.getInputStream())));
-             //String output;
-            System.out.println("Izlaz sa servera .... \n");
-             while ((output = br.readLine()) != null) {
-            	 odgovor.append(output);
-             }
-             br.close(); 
-             return odgovor;
+            	}
+            	BufferedReader br = new BufferedReader(new InputStreamReader(
+            	(connect.getInputStream())));
+             	//String output;
+            	System.out.println("Izlaz sa servera .... \n");
+             	while ((output = br.readLine()) != null) {
+            		odgovor.append(output);
+             	}
+             	br.close(); 
+             	return odgovor;
     	}
     	public Double jsonRukovanje(String odgovor,String unos) throws ParseException{ 
-    		 String odgovorSt = odgovor.toString();
+    	     String odgovorSt = odgovor.toString();
              JSONParser parser = new JSONParser();
              Object ob = parser.parse(odgovorSt);
              JSONObject obj = (JSONObject)ob;   

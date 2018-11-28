@@ -17,7 +17,7 @@ public class Main {
 		System.out.println("Unesite oznaku odredišne valute npr(USD)");
 		String valuta = sc.next().toUpperCase();
 		try{
-			String odgovorServera = japi.metoda(kriptoUnos,valuta).toString();
+			String odgovorServera = japi.metodaDohvata(kriptoUnos,valuta).toString();
 			Double rezultatParsiranja = japi.jsonRukovanje(odgovorServera,valuta);
 			if(rezultatParsiranja == null){
 				System.out.println("Greška prilikom parsiranja, molimo provjerite Vaš unos!");
